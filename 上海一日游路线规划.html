@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上海一日游路线规划 - 2025年6月1日</title>
+    <link href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/fontawesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js" defer></script>
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        .prose {
+            font-family: 'Noto Serif SC', serif;
+        }
+        .audio-player {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .audio-player button {
+            background: #4F46E5;
+            color: white;
+            border-radius: 9999px;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .progress-bar {
+            background: #E5E7EB;
+            height: 4px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: #3B82F6;
+            height: 100%;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen">
+    <!-- 顶部导航栏 -->
+    <header class="sticky top-0 bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-sm z-50">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <h1 class="text-2xl font-bold text-blue-600">上海一日游路线规划</h1>
+            <div class="text-gray-600">2025年6月1日</div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-6 space-y-6">
+        <!-- 路线概览卡片 -->
+        <section class="bg-white rounded-xl shadow-lg p-6 space-y-4">
+            <h2 class="text-xl font-bold text-blue-600">路线概览</h2>
+            <p class="text-gray-600">本次一日游精选上海4个经典景点，涵盖古典园林、历史街区、现代风光和标志性建筑，让您在一天内体验上海的古今风韵。</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#" class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full">
+                    <i class="fas fa-map-marker-alt mr-2"></i>4个景点
+                </a>
+                <a href="#" class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full">
+                    <i class="fas fa-clock mr-2"></i>10小时游览
+                </a>
+            </div>
+        </section>
+
+        <!-- 景点卡片 -->
+        <section class="space-y-6">
+            <!-- 豫园 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden" x-data="{ 
+                tab: 'route', 
+                showScript: false, 
+                isPlaying: false, 
+                currentTime: '0:00', 
+                duration: '0:00',
+                progress: 0,
+                toggleAudio() {
+                    const audio = document.getElementById('yuyuan-audio');
+                    if (this.isPlaying) {
+                        audio.pause();
+                    } else {
+                        audio.play();
+                        this.showScript = true; // 播放时自动显示文字稿
+                    }
+                }
+            }">
+                <div class="relative">
+                    <img src="http://store.is.autonavi.com/showpic/faeb0264854cd82fbb315cb2ccacea0f" 
+                         alt="豫园" class="w-full h-48 object-cover">
+                    <div class="absolute top-4 left-4 flex items-center space-x-2">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full">1</span>
+                        <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-sm">09:00-11:30</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">上海豫园</h3>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <span>4.8分</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 音频播放器 -->
+                    <div class="bg-blue-50 rounded-lg p-4 mb-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <audio id="yuyuan-audio" 
+                                       src="https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/audio%2Ftts-mp3-20250529201030-VcOovgVv.mp3?Expires=86401748520630&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=0gVI0l%2F%2BYUN4dhFGGlX2k66a2yg%3D"
+                                       @play="isPlaying = true"
+                                       @pause="isPlaying = false"
+                                       @timeupdate="currentTime = Math.floor($event.target.currentTime / 60) + ':' + (Math.floor($event.target.currentTime % 60) < 10 ? '0' : '') + Math.floor($event.target.currentTime % 60); progress = ($event.target.currentTime / $event.target.duration) * 100"
+                                       @loadedmetadata="duration = Math.floor($event.target.duration / 60) + ':' + (Math.floor($event.target.duration % 60) < 10 ? '0' : '') + Math.floor($event.target.duration % 60)"></audio>
+                                <button @click="toggleAudio()" 
+                                        class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700">
+                                    <i :class="isPlaying ? 'fas fa-pause' : 'fas fa-play'"></i>
+                                </button>
+                                <div class="flex flex-col">
+                                    <span class="text-gray-700 font-medium">语音导览</span>
+                                    <span class="text-sm text-gray-500" x-text="currentTime + ' / ' + duration"></span>
+                                </div>
+                            </div>
+                            <button @click="showScript = !showScript" 
+                                    class="px-3 py-1 bg-white text-blue-600 rounded-full text-sm border border-blue-200 hover:bg-blue-50">
+                                <i class="fas fa-file-text mr-1"></i>
+                                <span x-text="showScript ? '隐藏文稿' : '显示文稿'"></span>
+                            </button>
+                        </div>
+                        
+                        <!-- 进度条 -->
+                        <div class="progress-bar mb-3">
+                            <div class="progress-fill" :style="'width: ' + progress + '%'"></div>
+                        </div>
+                        
+                        <!-- 语音文字稿 -->
+                        <div x-show="showScript" x-transition class="bg-white rounded-lg p-4 text-sm text-gray-600 leading-relaxed">
+                            <h5 class="font-medium text-gray-800 mb-2">📝 导览文字稿：</h5>
+                            <p class="mb-3">欢迎来到上海豫园。这座始建于明代的江南古典园林，是上海最著名的景点之一。豫园的"豫"字取"愉悦"之意，由明代四川布政使潘允端为孝敬父母而建造，历时18年完工。</p>
+                            <p class="mb-3">园内最值得一看的景点包括：九曲桥、湖心亭、玉玲珑和万花楼。其中九曲桥蜿蜒曲折，体现了"曲径通幽"的园林美学；玉玲珑是江南三大名石之一，相传为宋代花石纲遗物；湖心亭茶楼自清代以来就是文人雅士聚会的场所。</p>
+                            <p>豫园不仅是一座园林，更是一座活着的历史博物馆。这里的每一处建筑、每一块石头都诉说着明清时期江南园林艺术的精髓。游览时建议您按照九曲桥、湖心亭、点春堂、万花楼、玉玲珑的顺序参观，最后在城隍庙商城品尝上海特色小吃，感受老上海的市井风情。</p>
+                        </div>
+                    </div>
+
+                    <!-- 标签页导航 -->
+                    <div class="flex space-x-4 mb-4 border-b">
+                        <button @click="tab = 'route'" 
+                                :class="{'text-blue-600 border-b-2 border-blue-600': tab === 'route'}"
+                                class="pb-2">内部路线</button>
+                        <button @click="tab = 'features'" 
+                                :class="{'text-blue-600 border-b-2 border-blue-600': tab === 'features'}"
+                                class="pb-2">景点特色</button>
+                        <button @click="tab = 'history'" 
+                                :class="{'text-blue-600 border-b-2 border-blue-600': tab === 'history'}"
+                                class="pb-2">历史典故</button>
+                    </div>
+
+                    <!-- 标签页内容 -->
+                    <div x-show="tab === 'route'" class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 flex-shrink-0 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">1</div>
+                            <div>
+                                <h4 class="font-medium">九曲桥 → 湖心亭</h4>
+                                <p class="text-gray-600 text-sm">体验"曲径通幽"的园林美学，欣赏亭台倒影</p>
+                            </div>
+                        </div>
+                        <!-- 其他路线点... -->
+                    </div>
+
+                    <div x-show="tab === 'features'" class="space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>明代古典园林，江南园林艺术的代表作</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>国家AAAA级旅游景区</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>中国古典园林建筑的精华</span>
+                        </div>
+                    </div>
+
+                    <div x-show="tab === 'history'" class="prose text-gray-600">
+                        <p>豫园始建于明代嘉靖、万历年间（1559-1577年），由明代四川布政使潘允端为孝敬其父潘恩而建。园名"豫"有"愉悦"之意，寓意"豫悦老亲"，体现了中华民族孝敬父母的传统美德。</p>
+                    </div>
+
+                    <!-- 基本信息 -->
+                    <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-ticket-alt text-blue-600"></i>
+                            <span>门票：40元</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-clock text-blue-600"></i>
+                            <span>开放：09:00-16:30</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            <span>地址：福佑路168号</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 南京路步行街 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden" x-data="{ 
+                tab: 'route', 
+                showScript: false, 
+                isPlaying: false, 
+                currentTime: '0:00', 
+                duration: '0:00',
+                progress: 0,
+                toggleAudio() {
+                    const audio = document.getElementById('nanjinglu-audio');
+                    if (this.isPlaying) {
+                        audio.pause();
+                    } else {
+                        audio.play();
+                        this.showScript = true;
+                    }
+                }
+            }">
+                <div class="relative">
+                    <img src="http://store.is.autonavi.com/showpic/79c863fb97e496744108947dfad8ea10" 
+                         alt="南京路步行街" class="w-full h-48 object-cover">
+                    <div class="absolute top-4 left-4 flex items-center space-x-2">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full">2</span>
+                        <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-sm">12:00-14:00</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">南京路步行街</h3>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <span>4.8分</span>
+                        </div>
+                    </div>
+
+                    <!-- 音频播放器 -->
+                    <div class="bg-blue-50 rounded-lg p-4 mb-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <audio id="nanjinglu-audio" 
+                                       src="https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/audio%2Ftts-mp3-20250529201042-pMjHenjh.mp3?Expires=86401748520642&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=U4UqGNmT%2BO3KiTwDutN7PUE57jg%3D"
+                                       @play="isPlaying = true"
+                                       @pause="isPlaying = false"
+                                       @timeupdate="currentTime = Math.floor($event.target.currentTime / 60) + ':' + (Math.floor($event.target.currentTime % 60) < 10 ? '0' : '') + Math.floor($event.target.currentTime % 60); progress = ($event.target.currentTime / $event.target.duration) * 100"
+                                       @loadedmetadata="duration = Math.floor($event.target.duration / 60) + ':' + (Math.floor($event.target.duration % 60) < 10 ? '0' : '') + Math.floor($event.target.duration % 60)"></audio>
+                                <button @click="toggleAudio()" 
+                                        class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700">
+                                    <i :class="isPlaying ? 'fas fa-pause' : 'fas fa-play'"></i>
+                                </button>
+                                <div class="flex flex-col">
+                                    <span class="text-gray-700 font-medium">语音导览</span>
+                                    <span class="text-sm text-gray-500" x-text="currentTime + ' / ' + duration"></span>
+                                </div>
+                            </div>
+                            <button @click="showScript = !showScript" 
+                                    class="px-3 py-1 bg-white text-blue-600 rounded-full text-sm border border-blue-200 hover:bg-blue-50">
+                                <i class="fas fa-file-text mr-1"></i>
+                                <span x-text="showScript ? '隐藏文稿' : '显示文稿'"></span>
+                            </button>
+                        </div>
+                        
+                        <!-- 进度条 -->
+                        <div class="progress-bar mb-3">
+                            <div class="progress-fill" :style="'width: ' + progress + '%'"></div>
+                        </div>
+                        
+                        <!-- 语音文字稿 -->
+                        <div x-show="showScript" x-transition class="bg-white rounded-lg p-4 text-sm text-gray-600 leading-relaxed">
+                            <h5 class="font-medium text-gray-800 mb-2">📝 导览文字稿：</h5>
+                            <p class="mb-3">欢迎来到南京路步行街，这里被誉为"中华商业第一街"。南京路的历史可以追溯到1845年上海开埠时期，最初被称为"花园弄"。这条街见证了上海从小渔村发展为国际大都市的历程。</p>
+                            <p class="mb-3">在这里，您可以看到许多具有百年历史的老字号商店，如第一百货商店、永安公司等。特别推荐您体验一下铛铛车，这是上海独特的怀旧交通工具，让您在游览购物的同时感受老上海的风情。</p>
+                            <p>美食方面，南翔小笼包、五芳斋粽子等老字号美食都是不容错过的。步行街上的建筑风格中西合璧，既有近代上海的繁华气息，又保留着传统商业文化的精髓。建议您在此驻足2小时，细细品味这条见证上海百年商业发展的历史街区。</p>
+                        </div>
+                    </div>
+
+                    <!-- 标签页导航 -->
+                    <div class="flex space-x-4 mb-4 border-b">
+                        <button @click="tab = 'route'" 
+                                :class="{'text-blue-600 border-b-2 border-blue-600': tab === 'route'}"
+                                class="pb-2">推荐体验</button>
+                        <button @click="tab = 'features'" 
+                                :class="{'text-blue-600 border-b-2 border-blue-600': tab === 'features'}"
+                                class="pb-2">景点特色</button>
+                        <button @click="tab = 'history'" 
+                                :class="{'text-blue-600 border-b-2 border-blue-600': tab === 'history'}"
+                                class="pb-2">历史典故</button>
+                    </div>
+
+                    <!-- 标签页内容 -->
+                    <div x-show="tab === 'route'" class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 flex-shrink-0 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">1</div>
+                            <div>
+                                <h4 class="font-medium">老字号美食</h4>
+                                <p class="text-gray-600 text-sm">品尝南翔小笼包、五芳斋粽子等传统美食</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 flex-shrink-0 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">2</div>
+                            <div>
+                                <h4 class="font-medium">历史建筑</h4>
+                                <p class="text-gray-600 text-sm">参观永安百货、第一百货等百年商厦</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 flex-shrink-0 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">3</div>
+                            <div>
+                                <h4 class="font-medium">铛铛车观光</h4>
+                                <p class="text-gray-600 text-sm">体验老上海特色交通工具</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div x-show="tab === 'features'" class="space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>中华商业第一街</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>百年历史的商业文化街区</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>中西合璧的建筑风格</span>
+                        </div>
+                    </div>
+
+                    <div x-show="tab === 'history'" class="prose text-gray-600">
+                        <p>南京路的历史可以追溯到1845年上海开埠初期，最初被称为"花园弄"。1862年，为纪念英国占领南京，英国殖民当局将这条路命名为"南京路"。这里见证了上海从小渔村发展为国际大都市的历程，是远东地区最繁华的商业街之一。</p>
+                    </div>
+
+                    <!-- 基本信息 -->
+                    <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-ticket-alt text-blue-600"></i>
+                            <span>门票：免费</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-clock text-blue-600"></i>
+                            <span>全天开放</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            <span>地址：南京东路558号</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 外滩 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden" x-data="{ 
+                tab: 'route', 
+                showScript: false, 
+                isPlaying: false, 
+                currentTime: '0:00', 
+                duration: '0:00',
+                progress: 0,
+                toggleAudio() {
+                    const audio = document.getElementById('bund-audio');
+                    if (this.isPlaying) {
+                        audio.pause();
+                    } else {
+                        audio.play();
+                        this.showScript = true;
+                    }
+                }
+            }">
+                <div class="relative">
+                    <img src="http://store.is.autonavi.com/showpic/b9c402b7d34ea98654cc915e567761dd" 
+                         alt="外滩" class="w-full h-48 object-cover">
+                    <div class="absolute top-4 left-4 flex items-center space-x-2">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full">3</span>
+                        <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-sm">14:30-16:30</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">外滩</h3>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <span>4.9分</span>
+                        </div>
+                    </div>
+
+                    <!-- 音频播放器 -->
+                    <div class="bg-blue-50 rounded-lg p-4 mb-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <audio id="bund-audio" 
+                                       src="https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/audio%2Ftts-mp3-20250529201052-hXrfUNEo.mp3?Expires=86401748520652&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=7NC84fnWnJhdasP1t6kwVIpBXNs%3D"
+                                       @play="isPlaying = true"
+                                       @pause="isPlaying = false"
+                                       @timeupdate="currentTime = Math.floor($event.target.currentTime / 60) + ':' + (Math.floor($event.target.currentTime % 60) < 10 ? '0' : '') + Math.floor($event.target.currentTime % 60); progress = ($event.target.currentTime / $event.target.duration) * 100"
+                                       @loadedmetadata="duration = Math.floor($event.target.duration / 60) + ':' + (Math.floor($event.target.duration % 60) < 10 ? '0' : '') + Math.floor($event.target.duration % 60)"></audio>
+                                <button @click="toggleAudio()" 
+                                        class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700">
+                                    <i :class="isPlaying ? 'fas fa-pause' : 'fas fa-play'"></i>
+                                </button>
+                                <div class="flex flex-col">
+                                    <span class="text-gray-700 font-medium">语音导览</span>
+                                    <span class="text-sm text-gray-500" x-text="currentTime + ' / ' + duration"></span>
+                                </div>
+                            </div>
+                            <button @click="showScript = !showScript" 
+                                    class="px-3 py-1 bg-white text-blue-600 rounded-full text-sm border border-blue-200 hover:bg-blue-50">
+                                <i class="fas fa-file-text mr-1"></i>
+                                <span x-text="showScript ? '隐藏文稿' : '显示文稿'"></span>
+                            </button>
+                        </div>
+                        
+                        <!-- 进度条 -->
+                        <div class="progress-bar mb-3">
+                            <div class="progress-fill" :style="'width: ' + progress + '%'"></div>
+                        </div>
+                        
+                        <!-- 语音文字稿 -->
+                        <div x-show="showScript" x-transition class="bg-white rounded-lg p-4 text-sm text-gray-600 leading-relaxed">
+                            <h5 class="font-medium text-gray-800 mb-2">📝 导览文字稿：</h5>
+                            <p class="mb-3">欢迎来到上海外滩，这里是上海最著名的地标之一。外滩位于黄浦江西岸，是欣赏浦江两岸景色的最佳观景点。这里的建筑群被誉为"万国建筑博览群"，汇集了多种西方古典主义建筑风格。</p>
+                            <p class="mb-3">外滩最著名的建筑包括：汇丰银行大楼，这座建于1923年的建筑曾被称为"远东第一楼"；海关大楼，其钟声被誉为"远东第一钟"；以及见证了无数历史时刻的和平饭店。</p>
+                            <p>建议您在外滩观景台驻足观赏浦江两岸的壮丽景色，特别是在傍晚时分，当华灯初上，整个外滩将呈现出最迷人的景色。您还可以在万国建筑群前、黄浦江边栏杆处、和平饭店历史建筑前拍照留念，记录这座见证上海百年沧桑的历史建筑群。</p>
+                        </div>
+                    </div>
+
+                    <!-- 标签页导航 -->
+                    <div class="flex space-x-4 mb-4 border-b">
+                        <button @click="tab = 'route'" 
+                                :class="{'text-blue-600 border-b-2 border-blue-600': tab === 'route'}"
+                                class="pb-2">推荐拍照点</button>
+                        <button @click="tab = 'features'" 
+                                :class="{'text-blue-600 border-b-2 border-blue-600': tab === 'features'}"
+                                class="pb-2">景点特色</button>
+                        <button @click="tab = 'history'" 
+                                :class="{'text-blue-600 border-b-2 border-blue-600': tab === 'history'}"
+                                class="pb-2">历史典故</button>
+                    </div>
+
+                    <!-- 标签页内容 -->
+                    <div x-show="tab === 'route'" class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 flex-shrink-0 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">1</div>
+                            <div>
+                                <h4 class="font-medium">外滩观景台</h4>
+                                <p class="text-gray-600 text-sm">最佳观景位置，可俯瞰浦江两岸</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 flex-shrink-0 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">2</div>
+                            <div>
+                                <h4 class="font-medium">万国建筑群</h4>
+                                <p class="text-gray-600 text-sm">欧式建筑群最佳拍摄位置</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 flex-shrink-0 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">3</div>
+                            <div>
+                                <h4 class="font-medium">和平饭店</h4>
+                                <p class="text-gray-600 text-sm">标志性历史建筑拍摄点</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div x-show="tab === 'features'" class="space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>万国建筑博览群</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>黄浦江最佳观景点</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>上海近代历史的缩影</span>
+                        </div>
+                    </div>
+
+                    <div x-show="tab === 'history'" class="prose text-gray-600">
+                        <p>"外滩"一词源于上海话，原指黄浦江岸的一片农田和滩涂地。这里的建筑群汇集了英国、法国、德国等国家的建筑风格，被誉为"万国建筑博览群"。其中最著名的包括汇丰银行大楼、海关大楼和和平饭店等。</p>
+                    </div>
+
+                    <!-- 基本信息 -->
+                    <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-ticket-alt text-blue-600"></i>
+                            <span>门票：免费</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-clock text-blue-600"></i>
+                            <span>24小时开放</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            <span>地址：中山东一路49号</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 东方明珠 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden" x-data="{ 
+                tab: 'route', 
+                showScript: false, 
+                isPlaying: false, 
+                currentTime: '0:00', 
+                duration: '0:00',
+                progress: 0,
+                toggleAudio() {
+                    const audio = document.getElementById('pearl-audio');
+                    if (this.isPlaying) {
+                        audio.pause();
+                    } else {
+                        audio.play();
+                        this.showScript = true;
+                    }
+                }
+            }">
+                <div class="relative">
+                    <img src="http://store.is.autonavi.com/showpic/73078b8c6c35ed97cf0c11c0cb65b32f" 
+                         alt="东方明珠" class="w-full h-48 object-cover">
+                    <div class="absolute top-4 left-4 flex items-center space-x-2">
+                        <span class="w-8 h-8 flex items-center justify-center bg-blue-600 text-white rounded-full">4</span>
+                        <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-sm">17:00-19:00</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">东方明珠广播电视塔</h3>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <span>4.7分</span>
+                        </div>
+                    </div>
+
+                    <!-- 音频播放器 -->
+                    <div class="bg-blue-50 rounded-lg p-4 mb-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <audio id="pearl-audio" 
+                                       src="https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/audio%2Ftts-mp3-20250529201104-PLgvFfoB.mp3?Expires=86401748520664&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=xD5VcWa62Q5LFfX43l9FoZGKy%2FE%3D"
+                                       @play="isPlaying = true"
+                                       @pause="isPlaying = false"
+                                       @timeupdate="currentTime = Math.floor($event.target.currentTime / 60) + ':' + (Math.floor($event.target.currentTime % 60) < 10 ? '0' : '') + Math.floor($event.target.currentTime % 60); progress = ($event.target.currentTime / $event.target.duration) * 100"
+                                       @loadedmetadata="duration = Math.floor($event.target.duration / 60) + ':' + (Math.floor($event.target.duration % 60) < 10 ? '0' : '') + Math.floor($event.target.duration % 60)"></audio>
+                                <button @click="toggleAudio()" 
+                                        class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700">
+                                    <i :class="isPlaying ? 'fas fa-pause' : 'fas fa-play'"></i>
+                                </button>
+                                <div class="flex flex-col">
+                                    <span class="text-gray-700 font-medium">语音导览</span>
+                                    <span class="text-sm text-gray-500" x-text="currentTime + ' / ' + duration"></span>
+                                </div>
+                            </div>
+                            <button @click="showScript = !showScript" 
+                                    class="px-3 py-1 bg-white text-blue-600 rounded-full text-sm border border-blue-200 hover:bg-blue-50">
+                                <i class="fas fa-file-text mr-1"></i>
+                                <span x-text="showScript ? '隐藏文稿' : '显示文稿'"></span>
+                            </button>
+                        </div>
+                        
+                        <!-- 进度条 -->
+                        <div class="progress-bar mb-3">
+                            <div class="progress-fill" :style="'width: ' + progress + '%'"></div>
+                        </div>
+                        
+                        <!-- 语音文字稿 -->
+                        <div x-show="showScript" x-transition class="bg-white rounded-lg p-4 text-sm text-gray-600 leading-relaxed">
+                            <h5 class="font-medium text-gray-800 mb-2">📝 导览文字稿：</h5>
+                            <p class="mb-3">欢迎来到东方明珠广播电视塔，这座高468米的现代建筑是上海最具代表性的地标之一。作为国家AAAAA级旅游景区，这里为您提供了俯瞰整个上海的绝佳视角。</p>
+                            <p class="mb-3">东方明珠的设计灵感来自于唐诗"大珠小珠落玉盘"，11个大小不一的球体串联成塔，形成了独特的建筑造型。这里不仅是一座电视塔，更是一个集观光、餐饮、购物、历史展览于一体的综合性旅游景点。</p>
+                            <p>推荐您体验以下项目：乘坐观光电梯，感受高速升降的刺激；在263米观光厅远眺上海全景；在351米太空舱享受高空观景的震撼。特别值得一提的是，在夜晚时分，您可以在这里欣赏到浦江两岸最壮观的灯光秀，见证魔都的璀璨夜景。</p>
+                        </div>
+                    </div>
+
+                    <!-- 标签页导航 -->
+                    <div class="flex space-x-4 mb-4 border-b">
+                        <button @click="tab = 'route'" 
+                                :class="{'text-blue-600 border-b-2 border-blue-600': tab === 'route'}"
+                                class="pb-2">推荐项目</button>
+                        <button @click="tab = 'features'" 
+                                :class="{'text-blue-600 border-b-2 border-blue-600': tab === 'features'}"
+                                class="pb-2">景点特色</button>
+                        <button @click="tab = 'history'" 
+                                :class="{'text-blue-600 border-b-2 border-blue-600': tab === 'history'}"
+                                class="pb-2">历史典故</button>
+                    </div>
+
+                    <!-- 标签页内容 -->
+                    <div x-show="tab === 'route'" class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 flex-shrink-0 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">1</div>
+                            <div>
+                                <h4 class="font-medium">观光电梯体验</h4>
+                                <p class="text-gray-600 text-sm">感受高速升降的刺激体验</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 flex-shrink-0 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">2</div>
+                            <div>
+                                <h4 class="font-medium">263米观光厅</h4>
+                                <p class="text-gray-600 text-sm">远眺上海全景</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 flex-shrink-0 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">3</div>
+                            <div>
+                                <h4 class="font-medium">351米太空舱</h4>
+                                <p class="text-gray-600 text-sm">享受高空观景的震撼</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div x-show="tab === 'features'" class="space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>上海地标建筑</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>国家AAAAA级旅游景区</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <span>俯瞰整个上海的最佳观景点</span>
+                        </div>
+                    </div>
+
+                    <div x-show="tab === 'history'" class="prose text-gray-600">
+                        <p>东方明珠的设计灵感来自于唐诗"大珠小珠落玉盘"，11个大小不一的球体串联成塔，形成了独特的建筑造型。这里不仅是一座电视塔，更是一个集观光、餐饮、购物、历史展览于一体的综合性旅游景点。</p>
+                    </div>
+
+                    <!-- 基本信息 -->
+                    <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-ticket-alt text-blue-600"></i>
+                            <span>门票：80元起</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-clock text-blue-600"></i>
+                            <span>开放：09:00-21:00</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            <span>地址：世纪大道1号</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 交通建议卡片 -->
+        <section class="bg-white rounded-xl shadow-lg p-6">
+            <h2 class="text-xl font-bold text-green-600 mb-4">交通路线详情</h2>
+            <div class="space-y-4">
+                <div class="flex items-center space-x-4 p-4 bg-green-50 rounded-lg">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-walking text-green-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-medium">豫园 → 南京路步行街</h3>
+                        <p class="text-sm text-gray-600">步行约18分钟，距离1.8公里</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 p-4 bg-green-50 rounded-lg">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-walking text-green-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-medium">南京路步行街 → 外滩</h3>
+                        <p class="text-sm text-gray-600">步行约15分钟，距离1.5公里</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 p-4 bg-green-50 rounded-lg">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-subway text-green-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-medium">外滩 → 东方明珠</h3>
+                        <p class="text-sm text-gray-600">建议乘坐地铁2号线，约15分钟</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 用餐建议卡片 -->
+        <section class="bg-white rounded-xl shadow-lg p-6">
+            <h2 class="text-xl font-bold text-orange-600 mb-4">美食推荐</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 bg-orange-50 rounded-lg">
+                    <h3 class="font-medium text-orange-600">豫园美食</h3>
+                    <ul class="mt-2 space-y-2 text-sm">
+                        <li>小笼包</li>
+                        <li>梨膏糖</li>
+                        <li>五香豆</li>
+                    </ul>
+                </div>
+                <div class="p-4 bg-orange-50 rounded-lg">
+                    <h3 class="font-medium text-orange-600">南京路美食</h3>
+                    <ul class="mt-2 space-y-2 text-sm">
+                        <li>老字号糕点</li>
+                        <li>传统小食</li>
+                        <li>本帮菜</li>
+                    </ul>
+                </div>
+                <div class="p-4 bg-orange-50 rounded-lg">
+                    <h3 class="font-medium text-orange-600">外滩美食</h3>
+                    <ul class="mt-2 space-y-2 text-sm">
+                        <li>精品西餐</li>
+                        <li>海派菜肴</li>
+                        <li>特色点心</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 重要提示卡片 -->
+        <section class="bg-white rounded-xl shadow-lg p-6">
+            <h2 class="text-xl font-bold text-red-600 mb-4">温馨提示</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-clock text-red-600"></i>
+                        <span>最佳游览时间：早上9点开始</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-shoe-prints text-red-600"></i>
+                        <span>建议穿着舒适的步行鞋</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-battery-full text-red-600"></i>
+                        <span>携带充电宝为拍照设备充电</span>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-cloud-sun text-red-600"></i>
+                        <span>关注天气预报，准备相应衣物</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-ticket-alt text-red-600"></i>
+                        <span>建议提前预订东方明珠门票</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-camera text-red-600"></i>
+                        <span>外滩夜景最美，建议傍晚到达</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="max-w-4xl mx-auto px-4 py-6 text-center text-gray-600">
+        <p>路线规划生成时间：2024年12月19日</p>
+        <p>适合人群：首次来沪游客、文化历史爱好者</p>
+    </footer>
+</body>
+</html> 
