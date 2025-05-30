@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>故宫博物院旅游指南</title>
+    <link href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/fontawesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
+    <style>
+        body { 
+            font-family: 'Noto Sans SC', 'Noto Serif SC', sans-serif; 
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen">
+    <!-- 顶部导航栏 -->
+    <header class="sticky top-0 z-50 glass-effect border-b border-white/20">
+        <div class="max-w-4xl mx-auto px-4 py-4">
+            <h1 class="text-2xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <i class="fas fa-crown mr-2"></i>故宫博物院旅游指南
+            </h1>
+        </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-4 py-6 space-y-6">
+        <!-- 路线概览卡片 -->
+        <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 text-white shadow-lg">
+            <h2 class="text-2xl font-bold mb-4">
+                <i class="fas fa-map-marked-alt mr-2"></i>路线概览
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="flex items-center">
+                    <i class="fas fa-clock text-yellow-300 mr-2"></i>
+                    <span>游览时间: 4-6小时</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-300 mr-2"></i>
+                    <span>评分: 4.9/5.0</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-ticket-alt text-yellow-300 mr-2"></i>
+                    <span>门票: 60元起</span>
+                </div>
+            </div>
+            <div class="mt-4 p-4 bg-white/10 rounded-lg">
+                <h3 class="font-semibold mb-2">推荐游览顺序</h3>
+                <p>午门 → 故宫主殿群 → 钟表馆 → 珍宝馆</p>
+                <p class="text-sm mt-2 text-blue-100">景点数量: 4个精选景点 | 开放时间: 周二至周日 08:30-17:00</p>
+            </div>
+        </div>
+
+        <!-- 基本设置卡片 -->
+        <div class="bg-white rounded-xl p-6 shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-gray-800">
+                <i class="fas fa-cog text-blue-600 mr-2"></i>基本信息
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-blue-800 mb-2">
+                        <i class="fas fa-map-marker-alt mr-2"></i>地址位置
+                    </h3>
+                    <p class="text-gray-700">北京市景山前街4号</p>
+                </div>
+                <div class="bg-indigo-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-indigo-800 mb-2">
+                        <i class="fas fa-award mr-2"></i>景点级别
+                    </h3>
+                    <p class="text-gray-700">AAAAA级景区 | 世界文化遗产</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 精选景点卡片 -->
+        <div class="space-y-6" x-data="{ activeTab: {}, currentAudio: null, audioStates: {} }">
+            
+            <!-- 午门 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="h-48 bg-cover bg-center relative" style="background-image: url('http://store.is.autonavi.com/showpic/dcd78b35cb123744056c03072ecdea17');">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-torii-gate text-5xl mb-2"></i>
+                            <h3 class="text-2xl font-bold">午门</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <span class="bg-blue-600 text-white text-sm font-bold py-1 px-3 rounded-full mr-3">1</span>
+                            <h3 class="text-2xl font-bold text-gray-800">午门（故宫正门）</h3>
+                            <span class="ml-2 bg-yellow-100 text-yellow-800 text-sm px-2 py-1 rounded">08:30-09:00</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-500"></i>
+                            <span class="ml-1 text-gray-600 font-semibold">4.9</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 语音导览 -->
+                    <div class="mb-4 p-4 bg-blue-50 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold text-blue-800">🎵 语音导览</span>
+                            <button 
+                                @click="
+                                    if (audioStates['wumen']) {
+                                        currentAudio.pause();
+                                        audioStates['wumen'] = false;
+                                    } else {
+                                        if (currentAudio) currentAudio.pause();
+                                        currentAudio = new Audio('https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/audio%2Ftts-mp3-20250530102752-QdCEmcza.mp3?Expires=86401748572072&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=mDp2TUXFBEs4rz11dXs%2BlMGWgEg%3D');
+                                        currentAudio.play();
+                                        audioStates = { wumen: true };
+                                        currentAudio.onended = () => { audioStates['wumen'] = false; };
+                                    }
+                                "
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                            >
+                                <i :class="audioStates['wumen'] ? 'fas fa-pause' : 'fas fa-play'" class="mr-2"></i>
+                                <span x-text="audioStates['wumen'] ? '暂停' : '播放'"></span>
+                            </button>
+                        </div>
+                        <div x-show="audioStates['wumen']" class="mt-3 text-sm text-gray-700">
+                            欢迎来到故宫博物院的午门！这里是紫禁城的正门，建于明永乐十八年。午门不仅是皇宫的入口，更是明清两代举行重大典礼的神圣场所。每当新皇帝登基、册立皇后、派遣将军出征时，盛大的典礼都会在这里举行。午门的名称来源于古代方位学说，因为它位于紫禁城的正南方，正对应古人所说的"午时"，象征着皇权如日中天的威严。请您仔细观察午门雄伟的建筑结构，感受明代皇家建筑的恢宏气势。
+                        </div>
+                    </div>
+
+                    <!-- 标签页 -->
+                    <div class="border-b border-gray-200 mb-4">
+                        <nav class="flex space-x-8">
+                            <button @click="activeTab['wumen'] = 'route'" :class="activeTab['wumen'] === 'route' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500'" class="py-2 px-1 border-b-2 font-medium text-sm">
+                                内部路线
+                            </button>
+                            <button @click="activeTab['wumen'] = 'highlights'" :class="activeTab['wumen'] === 'highlights' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500'" class="py-2 px-1 border-b-2 font-medium text-sm">
+                                亮点特色
+                            </button>
+                            <button @click="activeTab['wumen'] = 'experience'" :class="activeTab['wumen'] === 'experience' ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500'" class="py-2 px-1 border-b-2 font-medium text-sm">
+                                体验
+                            </button>
+                        </nav>
+                    </div>
+
+                    <!-- 内容区域 -->
+                    <div x-show="activeTab['wumen'] === 'route' || !activeTab['wumen']">
+                        <p class="text-gray-700 mb-4">故宫博物院正门入口，明清皇宫的正门，气势恢宏的宫殿建筑群入口。</p>
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <p><strong>地址:</strong> 故宫博物院正门入口</p>
+                            <p><strong>游览时长:</strong> 30分钟</p>
+                            <p><strong>开放时间:</strong> 周二至周日 08:30-17:00，最晚16:10进入</p>
+                        </div>
+                    </div>
+                    
+                    <div x-show="activeTab['wumen'] === 'highlights'">
+                        <ul class="space-y-2 text-gray-700">
+                            <li><i class="fas fa-check text-green-600 mr-2"></i>明代皇家建筑的恢宏气势</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i>重大典礼举行地</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i>古代方位学说的体现</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i>皇权象征的建筑设计</li>
+                        </ul>
+                    </div>
+                    
+                    <div x-show="activeTab['wumen'] === 'experience'">
+                        <div class="space-y-3 text-gray-700">
+                            <p><strong>历史体验:</strong> 感受明清两代皇帝举行重大典礼的神圣场所氛围</p>
+                            <p><strong>建筑欣赏:</strong> 观察午门雄伟的建筑结构，体验古代皇权的威严</p>
+                            <p><strong>文化感悟:</strong> 了解古代方位学说与皇权象征的深刻内涵</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 故宫主殿群 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="h-48 bg-cover bg-center relative" style="background-image: url('http://store.is.autonavi.com/showpic/2f968490d105bb2741e17f90b85c6b79');">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-chess-king text-5xl mb-2"></i>
+                            <h3 class="text-2xl font-bold">主殿群</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <span class="bg-blue-600 text-white text-sm font-bold py-1 px-3 rounded-full mr-3">2</span>
+                            <h3 class="text-2xl font-bold text-gray-800">故宫主殿群</h3>
+                            <span class="ml-2 bg-yellow-100 text-yellow-800 text-sm px-2 py-1 rounded">09:00-11:00</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-500"></i>
+                            <span class="ml-1 text-gray-600 font-semibold">4.9</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 语音导览 -->
+                    <div class="mb-4 p-4 bg-blue-50 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold text-blue-800">🎵 语音导览</span>
+                            <button 
+                                @click="
+                                    if (audioStates['sandian']) {
+                                        currentAudio.pause();
+                                        audioStates['sandian'] = false;
+                                    } else {
+                                        if (currentAudio) currentAudio.pause();
+                                        currentAudio = new Audio('https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/audio%2Ftts-mp3-20250530102805-lraCPqEi.mp3?Expires=86401748572085&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=Z732crjCYn8rZUvDh%2FNDkVlfDUc%3D');
+                                        currentAudio.play();
+                                        audioStates = { sandian: true };
+                                        currentAudio.onended = () => { audioStates['sandian'] = false; };
+                                    }
+                                "
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                            >
+                                <i :class="audioStates['sandian'] ? 'fas fa-pause' : 'fas fa-play'" class="mr-2"></i>
+                                <span x-text="audioStates['sandian'] ? '暂停' : '播放'"></span>
+                            </button>
+                        </div>
+                        <div x-show="audioStates['sandian']" class="mt-3 text-sm text-gray-700">
+                            现在您来到了故宫的核心区域——三大殿建筑群。这里包括太和殿、中和殿和保和殿，是整个紫禁城最重要的建筑群。太和殿被称为"金銮殿"，是皇帝举行登基大典和重要朝会的地方。中和殿是皇帝休息和准备的场所，而保和殿则是举行殿试和赐宴的地方。这三个大殿的名称都体现了中国古代哲学中对"和谐"的追求：太和、中和、保和，分别出自《易经》和《中庸》，展现了中华文化的深厚底蕴。
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700 mb-4">紫禁城核心建筑群，包括太和殿（金銮殿）、中和殿、保和殿。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="bg-yellow-50 p-3 rounded-lg text-center">
+                            <i class="fas fa-crown text-yellow-600 text-2xl mb-2"></i>
+                            <p class="text-sm font-semibold">太和殿</p>
+                            <p class="text-xs text-gray-600">登基大典</p>
+                        </div>
+                        <div class="bg-yellow-50 p-3 rounded-lg text-center">
+                            <i class="fas fa-yin-yang text-yellow-600 text-2xl mb-2"></i>
+                            <p class="text-sm font-semibold">中和殿</p>
+                            <p class="text-xs text-gray-600">休息准备</p>
+                        </div>
+                        <div class="bg-yellow-50 p-3 rounded-lg text-center">
+                            <i class="fas fa-scroll text-yellow-600 text-2xl mb-2"></i>
+                            <p class="text-sm font-semibold">保和殿</p>
+                            <p class="text-xs text-gray-600">殿试举行地</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-gray-50 p-3 rounded-lg">
+                        <p><strong>门票:</strong> 60元（主票）</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 钟表馆 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="h-48 bg-cover bg-center relative" style="background-image: url('http://store.is.autonavi.com/showpic/db50433739ce4770509508b3bfe92550');">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-clock text-5xl mb-2"></i>
+                            <h3 class="text-2xl font-bold">钟表馆</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <span class="bg-blue-600 text-white text-sm font-bold py-1 px-3 rounded-full mr-3">3</span>
+                            <h3 class="text-2xl font-bold text-gray-800">钟表馆</h3>
+                            <span class="ml-2 bg-yellow-100 text-yellow-800 text-sm px-2 py-1 rounded">11:00-12:00</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-500"></i>
+                            <span class="ml-1 text-gray-600 font-semibold">4.8</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 语音导览 -->
+                    <div class="mb-4 p-4 bg-blue-50 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold text-blue-800">🎵 语音导览</span>
+                            <button 
+                                @click="
+                                    if (audioStates['clock']) {
+                                        currentAudio.pause();
+                                        audioStates['clock'] = false;
+                                    } else {
+                                        if (currentAudio) currentAudio.pause();
+                                        currentAudio = new Audio('https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/audio%2Ftts-mp3-20250530102818-kYEQnJpn.mp3?Expires=86401748572098&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=U3L0wxlgyNUhESzSzyR91DTSRb8%3D');
+                                        currentAudio.play();
+                                        audioStates = { clock: true };
+                                        currentAudio.onended = () => { audioStates['clock'] = false; };
+                                    }
+                                "
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                            >
+                                <i :class="audioStates['clock'] ? 'fas fa-pause' : 'fas fa-play'" class="mr-2"></i>
+                                <span x-text="audioStates['clock'] ? '暂停' : '播放'"></span>
+                            </button>
+                        </div>
+                        <div x-show="audioStates['clock']" class="mt-3 text-sm text-gray-700">
+                            欢迎来到故宫钟表馆！这里收藏着大量精美的清代宫廷钟表，主要来自18到19世纪的英国、法国、瑞士等国。清代皇帝，特别是乾隆皇帝，对这些西洋钟表情有独钟，将它们视为珍贵的奇珍异宝。乾隆皇帝不仅大量收藏钟表，还在宫内专门设立了做钟处，聘请外国技师制作钟表。这些钟表不仅能够精确计时，更是精美绝伦的工艺品，见证了中西文化交流的珍贵历史。
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700 mb-4">珍贵古代钟表收藏展示，见证中西文化交流历史。</p>
+                    <div class="bg-orange-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-orange-800 mb-2">特色收藏</h4>
+                        <p class="text-gray-700 text-sm">18-19世纪英法瑞士钟表 | 乾隆皇帝珍藏 | 宫廷做钟处作品</p>
+                        <div class="mt-2 text-sm">
+                            <span class="text-red-600 font-semibold">门票: +10元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 珍宝馆 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="h-48 bg-cover bg-center relative" style="background-image: url('http://store.is.autonavi.com/showpic/ff41d3087c887ea1f89745cec63a9ff0');">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <i class="fas fa-gem text-5xl mb-2"></i>
+                            <h3 class="text-2xl font-bold">珍宝馆</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <span class="bg-blue-600 text-white text-sm font-bold py-1 px-3 rounded-full mr-3">4</span>
+                            <h3 class="text-2xl font-bold text-gray-800">珍宝馆</h3>
+                            <span class="ml-2 bg-yellow-100 text-yellow-800 text-sm px-2 py-1 rounded">12:00-13:00</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-500"></i>
+                            <span class="ml-1 text-gray-600 font-semibold">4.8</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 语音导览 -->
+                    <div class="mb-4 p-4 bg-blue-50 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold text-blue-800">🎵 语音导览</span>
+                            <button 
+                                @click="
+                                    if (audioStates['treasure']) {
+                                        currentAudio.pause();
+                                        audioStates['treasure'] = false;
+                                    } else {
+                                        if (currentAudio) currentAudio.pause();
+                                        currentAudio = new Audio('https://minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com/audio%2Ftts-mp3-20250530102831-DISxayHN.mp3?Expires=86401748572111&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=GW3CRNPJzj%2F4MdVjt3e6R4O50nk%3D');
+                                        currentAudio.play();
+                                        audioStates = { treasure: true };
+                                        currentAudio.onended = () => { audioStates['treasure'] = false; };
+                                    }
+                                "
+                                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                            >
+                                <i :class="audioStates['treasure'] ? 'fas fa-pause' : 'fas fa-play'" class="mr-2"></i>
+                                <span x-text="audioStates['treasure'] ? '暂停' : '播放'"></span>
+                            </button>
+                        </div>
+                        <div x-show="audioStates['treasure']" class="mt-3 text-sm text-gray-700">
+                            现在您参观的是故宫珍宝馆，这里位于宁寿宫区域。宁寿宫原本是乾隆皇帝为自己退位后居住而专门建造的宫殿群。乾隆皇帝在位60年后主动让位给儿子嘉庆，自称太上皇，就在这里颐养天年。珍宝馆内收藏了历代皇帝的珍爱之物，包括精美的金银器、玉器、珐琅器、竹木雕刻和各种文房用具。这些珍宝不仅展现了清代宫廷生活的奢华精致，更体现了中国古代工艺美术的最高水准。
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700 mb-4">皇家珍宝文物收藏，位于宁寿宫区域，展示宫廷生活用品。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div class="bg-purple-50 p-3 rounded-lg text-center">
+                            <i class="fas fa-coins text-purple-600 text-xl mb-1"></i>
+                            <p class="text-xs font-semibold">金银器</p>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg text-center">
+                            <i class="fas fa-ring text-purple-600 text-xl mb-1"></i>
+                            <p class="text-xs font-semibold">玉器</p>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg text-center">
+                            <i class="fas fa-palette text-purple-600 text-xl mb-1"></i>
+                            <p class="text-xs font-semibold">珐琅器</p>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg text-center">
+                            <i class="fas fa-pen-fancy text-purple-600 text-xl mb-1"></i>
+                            <p class="text-xs font-semibold">文房用具</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-gray-50 p-3 rounded-lg">
+                        <span class="text-red-600 font-semibold">门票: +10元</span>
+                        <span class="ml-4 text-gray-600">位置: 东北角宁寿宫</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 交通建议卡片 -->
+        <div class="bg-white rounded-xl p-6 shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-gray-800">
+                <i class="fas fa-subway text-green-600 mr-2"></i>交通建议
+            </h2>
+            <div class="space-y-3">
+                <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-subway text-green-600 mr-3"></i>
+                        <div>
+                            <p class="font-semibold">地铁1号线</p>
+                            <p class="text-sm text-gray-600">天安门东站 → 故宫</p>
+                        </div>
+                    </div>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">步行15分钟</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-subway text-green-600 mr-3"></i>
+                        <div>
+                            <p class="font-semibold">地铁1号线</p>
+                            <p class="text-sm text-gray-600">天安门西站 → 故宫</p>
+                        </div>
+                    </div>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">步行16分钟</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-bus text-blue-600 mr-3"></i>
+                        <div>
+                            <p class="font-semibold">公交线路</p>
+                            <p class="text-sm text-gray-600">1路、2路、82路、观光1线等</p>
+                        </div>
+                    </div>
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">直达景区</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 用餐建议卡片 -->
+        <div class="bg-white rounded-xl p-6 shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-gray-800">
+                <i class="fas fa-utensils text-orange-600 mr-2"></i>用餐建议
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-orange-50 p-4 rounded-lg text-center">
+                    <i class="fas fa-coffee text-orange-600 text-2xl mb-2"></i>
+                    <h3 class="font-semibold mb-2">早餐</h3>
+                    <p class="text-sm text-gray-600">景区附近茶楼</p>
+                    <p class="text-xs text-gray-500 mt-1">推荐: 天安门广场周边</p>
+                </div>
+                <div class="bg-orange-50 p-4 rounded-lg text-center">
+                    <i class="fas fa-bowl-rice text-orange-600 text-2xl mb-2"></i>
+                    <h3 class="font-semibold mb-2">午餐</h3>
+                    <p class="text-sm text-gray-600">故宫餐厅</p>
+                    <p class="text-xs text-gray-500 mt-1">位置: 保和殿东侧景运门外</p>
+                </div>
+                <div class="bg-orange-50 p-4 rounded-lg text-center">
+                    <i class="fas fa-cookie-bite text-orange-600 text-2xl mb-2"></i>
+                    <h3 class="font-semibold mb-2">下午茶</h3>
+                    <p class="text-sm text-gray-600">故宫咖啡厅</p>
+                    <p class="text-xs text-gray-500 mt-1">故宫内休息区</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 重要提示卡片 -->
+        <div class="bg-white rounded-xl p-6 shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-gray-800">
+                <i class="fas fa-exclamation-triangle text-red-600 mr-2"></i>重要提示
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-3">最佳游览季节</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-leaf text-green-500 mr-2"></i>春季: 4-5月，温度适宜，游客相对较少</li>
+                        <li><i class="fas fa-sun text-yellow-500 mr-2"></i>秋季: 9-10月，天高气爽，最佳游览时间</li>
+                        <li><i class="fas fa-snowflake text-blue-500 mr-2"></i>冬季: 12-2月，雪景美丽，注意保暖</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-3">装备建议</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-walking text-blue-500 mr-2"></i>舒适步行鞋（必备）</li>
+                        <li><i class="fas fa-camera text-purple-500 mr-2"></i>相机/手机（记录美好）</li>
+                        <li><i class="fas fa-water text-blue-400 mr-2"></i>水杯（补充水分）</li>
+                        <li><i class="fas fa-umbrella text-gray-500 mr-2"></i>雨伞（防雨遮阳）</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-gray-200">
+                <div class="text-center">
+                    <i class="fas fa-ticket-alt text-red-500 text-2xl mb-2"></i>
+                    <p class="text-sm font-semibold">提前预约</p>
+                    <p class="text-xs text-gray-600">官网购票，实名制</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-ban text-red-500 text-2xl mb-2"></i>
+                    <p class="text-sm font-semibold">禁带物品</p>
+                    <p class="text-xs text-gray-600">打火机、刀具等</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-clock text-blue-500 text-2xl mb-2"></i>
+                    <p class="text-sm font-semibold">游览时长</p>
+                    <p class="text-xs text-gray-600">建议4-6小时</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="mt-12 bg-gray-800 text-white py-8">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="mb-2">&copy; 2024 故宫博物院旅游指南</p>
+            <p class="text-gray-400 text-sm">专业的旅行规划助手 | 让每一次旅行都充满意义</p>
+        </div>
+    </footer>
+</body>
+</html> 
